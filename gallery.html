@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Gallery & Contact | Hazzz Personal Website</title>
+
+    <!-- Connect with CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="info-page">
+
+    <!-- Navigation Bar -->
+    <header class="info-header">
+
+        <div class="logo">
+            <a href="index.html">▲ HAZZZ</a>
+        </div>
+
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="background.html">Background</a>
+            <a href="education.html">Education</a>
+            <a href="experience.html">Experience</a>
+            <a href="gallery.html" class="active">Gallery / Contact</a>
+        </nav>
+
+    </header>
+
+
+    <!-- Gallery Section -->
+    <main class="gallery-section">
+
+        <!-- Page Title -->
+        <div class="gallery-title">
+            <p>MY MEMORIES</p>
+            <h1>Gallery</h1>
+            <p class="gallery-intro">
+                A collection of moments, experiences, and memories from
+                different parts of my journey.
+            </p>
+        </div>
+
+
+        <!-- Photo Gallery -->
+       
+<!-- Photo Gallery -->
+<div class="photo-grid">
+
+    <div class="photo-item">
+        <img src="gallery/G1.jpg" alt="Gallery Photo 1">
+    </div>
+
+    <div class="photo-item">
+        <img src="gallery/G2.jpg" alt="Gallery Photo 2">
+    </div>
+
+    <div class="photo-item">
+        <img src="gallery/G3.jpg" alt="Gallery Photo 3">
+    </div>
+
+    <div class="photo-item">
+        <img src="gallery/G4.jpg" alt="Gallery Photo 4">
+    </div>
+
+    <div class="photo-item">
+        <img src="gallery/G5.jpg" alt="Gallery Photo 5">
+    </div>
+
+    <div class="photo-item">
+        <img src="gallery/G6.jpg" alt="Gallery Photo 6">
+    </div>
+
+</div>
+
+
+
+        <!-- Contact Section -->
+        <section class="contact-section">
+
+            <div class="contact-title">
+                <p>GET IN TOUCH</p>
+                <h2>Contact Me</h2>
+                <p>
+                    Feel free to contact me if you would like to know more
+                    about me or my experiences.
+                </p>
+            </div>
+
+
+            <!-- Contact Information -->
+            <div class="contact-info">
+
+                <div class="contact-card">
+                    <h3>Email</h3>
+                    <p>your-email@example.com</p>
+                </div>
+
+                <div class="contact-card">
+                    <h3>Instagram</h3>
+                    <p>@yourusername</p>
+                </div>
+
+                <div class="contact-card">
+                    <h3>Location</h3>
+                    <p>Malaysia</p>
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2026 Hazzz. My Personal Website.</p>
+    </footer>
+
+
+<!-- AUTOMATIC BACKGROUND MUSIC -->
+<audio id="backgroundMusic" autoplay loop preload="auto">
+    <source src="./Love.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+const music = document.getElementById("backgroundMusic");
+
+// Set volume
+music.volume = 0.5;
+
+// Get previous music position
+const savedTime = localStorage.getItem("siteMusicTime");
+
+// Restore previous position
+music.addEventListener("loadedmetadata", function() {
+
+    if (savedTime !== null) {
+        music.currentTime = Number(savedTime);
+    }
+
+    // Automatically play music
+    music.play().catch(error => {
+        console.log("Autoplay was blocked by the browser.");
+    });
+
+}, { once: true });
+
+// Save music position continuously
+music.addEventListener("timeupdate", function() {
+    localStorage.setItem("siteMusicTime", music.currentTime);
+});
+
+// Save position before leaving page
+window.addEventListener("pagehide", function() {
+    localStorage.setItem("siteMusicTime", music.currentTime);
+});
+
+</script>
+
+
+
+
+</body>
+</html>

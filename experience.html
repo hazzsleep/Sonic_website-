@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Experience | Hazzz Personal Website</title>
+
+    <!-- Connect with CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="info-page">
+
+    <!-- Navigation Bar -->
+    <header class="info-header">
+
+        <div class="logo">
+            <a href="index.html">▲ HAZZZ</a>
+        </div>
+
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="background.html">Background</a>
+            <a href="education.html">Education</a>
+            <a href="experience.html" class="active">Experience</a>
+            <a href="gallery.html">Gallery / Contact</a>
+        </nav>
+
+    </header>
+
+
+    <!-- Experience Section -->
+    <main class="experience-section">
+
+        <!-- Page Title -->
+        <div class="experience-title">
+            <p>MY JOURNEY AND ACTIVITIES</p>
+            <h1>My Experiences</h1>
+            <p class="experience-intro">
+                Here are some of the experiences and activities that have
+                helped me gain new knowledge, develop my skills, and grow as
+                an individual.
+            </p>
+        </div>
+
+
+        <!-- Experience Cards -->
+        <div class="experience-grid">
+
+            <!-- Experience 1 -->
+            <div class="experience-card">
+
+                <div class="experience-icon">💼</div>
+
+                <p class="experience-date">2026</p>
+
+                <h2>Industrial Training</h2>
+
+                <p>
+                    Participated in industrial training, where I gained
+                    practical experience and developed professional skills
+                    through various tasks and activities.
+                </p>
+
+                <div class="skills">
+                    <span>Communication</span>
+                    <span>Teamwork</span>
+                    <span>Design</span>
+                </div>
+
+            </div>
+
+
+            <!-- Experience 2 -->
+            <div class="experience-card">
+
+                <div class="experience-icon">🤝</div>
+
+                <p class="experience-date">2026</p>
+
+                <h2>Volunteer Activities</h2>
+
+                <p>
+                    Participated in volunteer programmes and supported various
+                    activities. These experiences helped me improve my teamwork,
+                    communication, and organisational skills.
+                </p>
+
+                <div class="skills">
+                    <span>Leadership</span>
+                    <span>Teamwork</span>
+                    <span>Organisation</span>
+                </div>
+
+            </div>
+
+
+            <!-- Experience 3 -->
+            <div class="experience-card">
+
+                <div class="experience-icon">🎯</div>
+
+                <p class="experience-date">2026</p>
+
+                <h2>Programme Committee</h2>
+
+                <p>
+                    Assisted in organising programmes and activities by working
+                    with committee members and staff to ensure that events were
+                    properly arranged and ran smoothly.
+                </p>
+
+                <div class="skills">
+                    <span>Planning</span>
+                    <span>Coordination</span>
+                    <span>Problem Solving</span>
+                </div>
+
+            </div>
+
+
+            <!-- Experience 4 -->
+            <div class="experience-card">
+
+                <div class="experience-icon">📚</div>
+
+                <p class="experience-date">2026</p>
+
+                <h2>Knowledge Camp</h2>
+
+                <p>
+                    Took part in organising activities and assisting
+                    participants during the programme. I also gained experience
+                    in registration, preparation, and activity coordination.
+                </p>
+
+                <div class="skills">
+                    <span>Event Management</span>
+                    <span>Communication</span>
+                    <span>Responsibility</span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2026 Hazzz. My Personal Website.</p>
+    </footer>
+
+
+<!-- AUTOMATIC BACKGROUND MUSIC -->
+<audio id="backgroundMusic" autoplay loop preload="auto">
+    <source src="./Love.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+const music = document.getElementById("backgroundMusic");
+
+// Set volume
+music.volume = 0.5;
+
+// Get previous music position
+const savedTime = localStorage.getItem("siteMusicTime");
+
+// Restore previous position
+music.addEventListener("loadedmetadata", function() {
+
+    if (savedTime !== null) {
+        music.currentTime = Number(savedTime);
+    }
+
+    // Automatically play music
+    music.play().catch(error => {
+        console.log("Autoplay was blocked by the browser.");
+    });
+
+}, { once: true });
+
+// Save music position continuously
+music.addEventListener("timeupdate", function() {
+    localStorage.setItem("siteMusicTime", music.currentTime);
+});
+
+// Save position before leaving page
+window.addEventListener("pagehide", function() {
+    localStorage.setItem("siteMusicTime", music.currentTime);
+});
+
+</script>
+
+
+</body>
+</html>

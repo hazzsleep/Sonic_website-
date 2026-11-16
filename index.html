@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Hazzz | Personal Website</title>
+
+    <!-- Connect HTML with CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Navigation Bar -->
+    <header>
+        <div class="logo"> About Me</div>
+
+        <nav>
+            <a href="index.html" class="active">Home</a>
+            <a href="background.html">Background</a>
+            <a href="education.html">Education</a>
+            <a href="experience.html">Experience</a>
+            <a href="gallery.html">Gallery / Contact</a>
+        </nav>
+    </header>
+
+
+    <!-- Homepage Section -->
+    <main class="hero">
+
+        <div class="hero-content">
+
+            <p class="hello">HELLO, I'M</p>
+
+            <h1>Siti Nur Syafiqah</h1>
+
+            <p class="description">
+                “Love is like the wind, you can't see it but you can feel it.”.
+            </p>
+
+            <a href="background.html" class="button">
+                Explore My Journey →
+            </a>
+
+        </div>
+
+        <!-- Bottom Social Links -->
+        <div class="social">
+            <a href="#">Instagram</a>
+            <a href="#">LinkedIn</a>
+            <a href="mailto:your-email@example.com">Email</a>
+        </div>
+
+    </main>
+
+
+
+<!-- AUTOMATIC BACKGROUND MUSIC -->
+<audio id="backgroundMusic" autoplay loop preload="auto">
+    <source src="./Love.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+const music = document.getElementById("backgroundMusic");
+
+// Set volume
+music.volume = 0.5;
+
+// Get previous music position
+const savedTime = localStorage.getItem("siteMusicTime");
+
+// Restore previous position
+music.addEventListener("loadedmetadata", function() {
+
+    if (savedTime !== null) {
+        music.currentTime = Number(savedTime);
+    }
+
+    // Automatically play music
+    music.play().catch(error => {
+        console.log("Autoplay was blocked by the browser.");
+    });
+
+}, { once: true });
+
+// Save music position continuously
+music.addEventListener("timeupdate", function() {
+    localStorage.setItem("siteMusicTime", music.currentTime);
+});
+
+// Save position before leaving page
+window.addEventListener("pagehide", function() {
+    localStorage.setItem("siteMusicTime", music.currentTime);
+});
+
+</script>
+
+
+
+</body>
+</html>
